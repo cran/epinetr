@@ -1,4 +1,4 @@
-ee5b054c9c569e836af525c1b9af6d46 *DESCRIPTION
+91f05b11935c3ab187db655c68f3bbe6 *DESCRIPTION
 49af4dc1183607d9fb143c9ff27d65e9 *NAMESPACE
 ab01442d1cc752fc7206d0d5558b0a5d *R/Population.R
 49070604267ceae2a32eb6d41d5450cc *R/Population_getters.R
@@ -23,9 +23,9 @@ abe3bef0342cfdbb5fd63024384e8bf5 *R/runSim_utils.R
 ea4f5bef461556eb5222a2acd79283d1 *data/rincmat100snp.rda
 d20890727e07331890298fcd8675825c *demo/00Index
 cc34ab6a38158a5b734184e1a2deb23a *demo/demo.R
-290e82b3cdf1d86ade432f9343dbc94b *inst/doc/epinetr-vignette.R
-373527f6d3e81358c91a002e639d164d *inst/doc/epinetr-vignette.Rmd
-ae0776a6ec4478e16590d693bc08a933 *inst/doc/epinetr-vignette.html
+1f3a3cfe6268405f1e98506efa4da6c9 *inst/doc/epinetr-vignette.R
+c072f115996b1b5d730fb542249d2b32 *inst/doc/epinetr-vignette.Rmd
+770e81abe231fe62d3a0c70669804c20 *inst/doc/epinetr-vignette.html
 4c564e677d1b9bf4edfc8ab8307cb5d9 *inst/extdata/geno.epi
 29e4d8b24dbb87e8071ffb41a5b68902 *man/Population.Rd
 3142b7233c46a5373266996241975bbf *man/addEffects.Rd
@@ -63,4 +63,4 @@ f9c2971fdf806dc311905928af05e2c1 *tests/testthat.R
 c0f617abc1eb8a9ed4a8de91cceb4c6e *tests/testthat/test_addEffects.R
 56d5c635d70af9f292cb288abe5d0d4f *tests/testthat/test_attachEpiNet.R
 bcd1fa5935d8488ca4d09badff61a90e *tests/testthat/test_runSim.R
-373527f6d3e81358c91a002e639d164d *vignettes/epinetr-vignette.Rmd
+c072f115996b1b5d730fb542249d2b32 *vignettes/epinetr-vignette.Rmd

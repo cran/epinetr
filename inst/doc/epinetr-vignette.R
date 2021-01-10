@@ -1,5 +1,6 @@
 ## ----echo=FALSE---------------------------------------------------------------
-knitr::opts_chunk$set(dev.args = list(png = list(type = "cairo")))
+if (capabilities("cairo"))
+  knitr::opts_chunk$set(dev.args = list(png = list(type = "cairo")))
 
 ## ----message=FALSE, fig.width=5, fig.asp=1, fig.align='center', fig.cap="An epistatic network generated between 50 QTLs."----
 library(epinetr)
