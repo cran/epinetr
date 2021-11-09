@@ -1,6 +1,6 @@
 Package: epinetr
 Title: Epistatic Network Modelling with Forward-Time Simulation
-Version: 0.94
+Version: 0.95
 Authors@R: c(
   person("Dion", "Detterer", email = "ddettere@myune.edu.au", role = c("aut", "cre")),
   person("Paul", "Kwan", email = "pkwan@mit.edu.au", role = "aut"),
@@ -21,10 +21,10 @@ Suggests: knitr, rmarkdown, testthat
 VignetteBuilder: knitr
 LinkingTo: Rcpp
 NeedsCompilation: yes
-Packaged: 2021-01-10 03:10:34 UTC; User
+Packaged: 2021-11-09 00:19:17 UTC; User
 Author: Dion Detterer [aut, cre],
   Paul Kwan [aut],
   Cedric Gondro [aut]
 Maintainer: Dion Detterer <ddettere@myune.edu.au>
 Repository: CRAN
-Date/Publication: 2021-01-10 15:40:12 UTC
+Date/Publication: 2021-11-09 05:50:02 UTC

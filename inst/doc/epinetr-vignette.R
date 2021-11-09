@@ -2,13 +2,13 @@
 if (capabilities("cairo"))
   knitr::opts_chunk$set(dev.args = list(png = list(type = "cairo")))
 
-## ----message=FALSE, fig.width=5, fig.asp=1, fig.align='center', fig.cap="An epistatic network generated between 50 QTLs."----
+## ----message=FALSE, fig.width=5, fig.asp=1, fig.align='center', fig.cap="An epistatic network generated between 50 QTL."----
 library(epinetr)
 
-# Build a population of size 1000, with 50 QTLs, broad-sense heritability of 0.6,
-# narrow-sense heritability of 0.4 and overall trait variance of 50.
+# Build a population of size 1000, with 50 QTL, broad-sense heritability of 0.4,
+# narrow-sense heritability of 0.2 and overall trait variance of 40.
 pop <- Population(popSize = 1000, map = map100snp, alleleFrequencies = runif(100),
-                  QTL = 50, broadH2 = 0.6, narrowh2 = 0.4, traitVar = 50)
+                  QTL = 50, broadH2 = 0.4, narrowh2 = 0.2, traitVar = 40)
 
 # Attach additive effects
 pop <- addEffects(pop)
@@ -25,7 +25,7 @@ head(getComponents(pop))
 
 ## ----message=FALSE, fig.width=7, fig.height=4, fig.align='center', fig.cap="A graphical representation of a simulation run across 250 generations."----
 # Run a simulation across 250 generations
-pop <- runSim(pop, generations = 250, selection = "ranking")
+pop <- runSim(pop, generations = 250, truncSire = 0.1, truncDam = 0.5)
 
 # Plot the simulation run
 plot(pop)
@@ -61,6 +61,10 @@ pop
 pop <- Population(popSize = 200, map = map100snp, QTL = 20,
                   alleleFrequencies = runif(100))
 pop
+
+## ----message=FALSE------------------------------------------------------------
+pop <- Population(popSize = 200, map = map100snp, QTL = 20,
+                  alleleFrequencies = runif(100), h2est = 0.6)
 
 ## ----message=FALSE------------------------------------------------------------
 pop <- Population(popSize = 200, map = map100snp,
@@ -123,15 +127,15 @@ getAddCoefs(pop)
 pop <- attachEpiNet(pop)
 pop
 
-## ----fig.width=5, fig.asp=1, fig.align='center', fig.cap="A random epistatic network generated between 20 QTLs."----
+## ----fig.width=5, fig.asp=1, fig.align='center', fig.cap="A random epistatic network generated between 20 QTL."----
 epinet <- getEpiNet(pop)
 plot(epinet)
 
-## ----message=FALSE, fig.width=5, fig.asp=1, fig.align='center', fig.cap="An epistatic network generated using the Barabasi-Albert model between 20 QTLs."----
+## ----message=FALSE, fig.width=5, fig.asp=1, fig.align='center', fig.cap="An epistatic network generated using the Barabasi-Albert model between 20 QTL."----
 pop <- attachEpiNet(pop, scaleFree = TRUE)
 plot(getEpiNet(pop))
 
-## ----message=FALSE, fig.width=5, fig.asp=1, fig.align='center', fig.cap="An epistatic network where 7 QTLs have no epistatic effects."----
+## ----message=FALSE, fig.width=5, fig.asp=1, fig.align='center', fig.cap="An epistatic network where 7 QTL have no epistatic effects."----
 pop <- attachEpiNet(pop, scaleFree = TRUE, additive = 7)
 plot(getEpiNet(pop))
 
@@ -189,7 +193,7 @@ pop <- attachEpiNet(pop, additive = 1:5)
 ## -----------------------------------------------------------------------------
 getIncMatrix(pop)
 
-## ---- fig.width=5, fig.asp=1, fig.align='center', fig.cap="The epistatic network generated with the first 5 of the 15 QTLs being purely additive."----
+## ---- fig.width=5, fig.asp=1, fig.align='center', fig.cap="The epistatic network generated with the first 5 of the 15 QTL being purely additive."----
 plot(getEpiNet(pop))
 
 ## ----message=FALSE------------------------------------------------------------
@@ -320,11 +324,16 @@ ggplot2::ggplot(data = df, ggplot2::aes(x=reorder(Individual, -Probability), y=P
 ## ----message=FALSE------------------------------------------------------------
 popRunRank <- runSim(pop, generations = 150, selection = "ranking")
 popRunBurnIn <- runSim(pop, generations = 150, burnIn = 50,
-                       selection = "ranking",
-                       truncSire = 0.25, truncDam = 0.25,
+                       truncSire = 0.1, truncDam = 0.5,
                        roundsSire = 5, roundsDam = 5,
                        litterDist = c(0.1, 0.3, 0.4, 0.2),
                        breedSire = 7)
+popRunTGV <- runSim(pop, generations = 150,
+                    truncSire = 0.1, truncDam = 0.5,
+                    fitness = "TGV")
+popRunEBV <- runSim(pop, generations = 150,
+                    truncSire = 0.1, truncDam = 0.5,
+                    fitness = "EBV")
 
 ## ----fig.width=7, fig.height=4, fig.align='center', fig.cap="A graphical representation of a simulation run using the default parameters."----
 plot(popRun)
@@ -332,8 +341,14 @@ plot(popRun)
 ## ----fig.width=7, fig.height=4, fig.align='center', fig.cap="A graphical representation of a simulation run using linear ranking selection."----
 plot(popRunRank)
 
-## ----fig.width=7, fig.height=4, fig.align='center', fig.cap="A graphical representation of a simulation run using ranking selection and a burn-in period of the first 50 generations."----
+## ----fig.width=7, fig.height=4, fig.align='center', fig.cap="A graphical representation of a simulation run using truncation selection and a burn-in period of the first 50 generations."----
 plot(popRunBurnIn)
+
+## ----fig.width=7, fig.height=4, fig.align='center', fig.cap="A graphical representation of a simulation run using truncation selection based on true genetic values."----
+plot(popRunTGV)
+
+## ----fig.width=7, fig.height=4, fig.align='center', fig.cap="A graphical representation of a simulation run using truncation selection based on estimated breeding values."----
+plot(popRunEBV)
 
 ## ----echo=FALSE---------------------------------------------------------------
 allGenoFileName <- system.file("extdata", "geno.epi", package = "epinetr")
