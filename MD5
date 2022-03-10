@@ -1,6 +1,6 @@
-de66d846902205badfcb2c8a1e87f4b2 *DESCRIPTION
+1992fec9d977a4cf159d0ed39c3f7763 *DESCRIPTION
 d3e260c974a1ca4705ad23b69d9defbf *NAMESPACE
-057bad4e5cecf55b1ea7a2a465124ff2 *R/Population.R
+bbc3667a16503238cacbb48c2bd31797 *R/Population.R
 49070604267ceae2a32eb6d41d5450cc *R/Population_getters.R
 294f41e024365e258a5cee5311af3062 *R/Population_utils.R
 ca4f3e41f91ddb41b9cc45ab6d0b03a0 *R/RcppExports.R
@@ -17,15 +17,15 @@ f84acf4c888ce3768b6de49359c2c02c *R/runSim.R
 fb4a926e22030c22ba5aa9e15d84e8f1 *R/runSim_utils.R
 9ac904509855ca3184af4529955fa098 *R/vcf.R
 03513c8f6b5559a6fd3c9aff664e4922 *README.md
-a5c550390a4fa1d21fe656c713a71678 *build/vignette.rds
+8def5969974a6fe03800ec89120f4299 *build/vignette.rds
 8a710a0673cc594eb512f34f316bd154 *data/geno100snp.rda
 1e232a54bdade9c6cfde278429192383 *data/map100snp.rda
 ea4f5bef461556eb5222a2acd79283d1 *data/rincmat100snp.rda
 d20890727e07331890298fcd8675825c *demo/00Index
 cc34ab6a38158a5b734184e1a2deb23a *demo/demo.R
-74fa42f803fbf71a0642070ec1459a8f *inst/doc/epinetr-vignette.R
-ffb75e4f3752d67365d180057cd46444 *inst/doc/epinetr-vignette.Rmd
-a8c53a7e83d2aeb026567511ecfeb7b8 *inst/doc/epinetr-vignette.pdf
+857ef9237238c265422e344ddd732943 *inst/doc/epinetr-vignette.R
+7bd19b527cd722705ece8e7bb4f201c2 *inst/doc/epinetr-vignette.Rmd
+b9600b9685019d0a5ce26fd5157d2c4e *inst/doc/epinetr-vignette.html
 4c564e677d1b9bf4edfc8ab8307cb5d9 *inst/extdata/geno.epi
 e82ffbce31270ba003dcc13254288aee *man/Population.Rd
 3142b7233c46a5373266996241975bbf *man/addEffects.Rd
@@ -63,6 +63,6 @@ f9c2971fdf806dc311905928af05e2c1 *tests/testthat.R
 c0f617abc1eb8a9ed4a8de91cceb4c6e *tests/testthat/test-addEffects.R
 56d5c635d70af9f292cb288abe5d0d4f *tests/testthat/test-attachEpiNet.R
 bcd1fa5935d8488ca4d09badff61a90e *tests/testthat/test-runSim.R
-ffb75e4f3752d67365d180057cd46444 *vignettes/epinetr-vignette.Rmd
+7bd19b527cd722705ece8e7bb4f201c2 *vignettes/epinetr-vignette.Rmd
 d27788a46d1d6a16b10762f26d9dc5fd *vignettes/nature.csl
 e7e2b82b0efad08916bf835b5a973cf4 *vignettes/references.bib

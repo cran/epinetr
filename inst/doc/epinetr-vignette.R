@@ -143,7 +143,7 @@ plot(getEpiNet(pop))
 pop <- attachEpiNet(pop, scaleFree = TRUE, additive = 7, m = 2)
 plot(getEpiNet(pop))
 
-## ----message=FALSE, fig.width=5, fig.asp=1, fig.align='center', fig.cap="An epistatic network featuring 2-way to 7-way interactions"----
+## ----message=FALSE, fig.width=5, fig.asp=1, fig.align='center', fig.cap="An epistatic network featuring 2-way to 7-way interactions."----
 pop <- attachEpiNet(pop, scaleFree = TRUE, additive = 7, m = 2, k=2:7)
 plot(getEpiNet(pop))
 
